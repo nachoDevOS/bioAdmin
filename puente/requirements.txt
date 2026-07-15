@@ -1,0 +1,6 @@
+# Dependencias del puente Python <-> ZKTeco
+pyzk==0.9              # protocolo de los equipos ZKTeco (puerto 4370)
+fastapi>=0.110         # API de ordenes (probar conexion, sincronizar hora)
+uvicorn>=0.29          # servidor que ejecuta FastAPI
+requests>=2.31         # llamadas HTTP hacia la API de Laravel
+python-dotenv>=1.0     # lee la configuracion del archivo .env

@@ -35,4 +35,10 @@ return [
         ],
     ],
 
+    // Servicio Python (FastAPI) que habla con los equipos ZKTeco.
+    // Laravel lo usa para órdenes en vivo: probar conexión, sincronizar hora.
+    'puente' => [
+        'url' => env('PUENTE_URL', 'http://127.0.0.1:8001'),
+    ],
+
 ];

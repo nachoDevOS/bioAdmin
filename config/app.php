@@ -65,7 +65,9 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    // Se lee del .env (APP_TIMEZONE). Crítico en un sistema de asistencia:
+    // con la zona equivocada, "hoy" y las horas de los reportes salen mal.
+    'timezone' => env('APP_TIMEZONE', 'UTC'),
 
     /*
     |--------------------------------------------------------------------------
