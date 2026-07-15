@@ -81,6 +81,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/asignaciones', [AsignacionTurnoController::class, 'index']);
         Route::get('/asignaciones/crear', [AsignacionTurnoController::class, 'create']);
         Route::post('/asignaciones', [AsignacionTurnoController::class, 'store']);
+        Route::get('/asignaciones/{asignacion}/editar', [AsignacionTurnoController::class, 'edit']);
+        Route::put('/asignaciones/{asignacion}', [AsignacionTurnoController::class, 'update']);
         Route::delete('/asignaciones/{asignacion}', [AsignacionTurnoController::class, 'destroy']);
     });
 

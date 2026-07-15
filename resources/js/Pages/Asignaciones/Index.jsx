@@ -71,6 +71,7 @@ export default function Index({ asignaciones, filtros }) {
                             <th className="px-4 py-3">Turno</th>
                             <th className="px-4 py-3">Desde</th>
                             <th className="px-4 py-3">Hasta</th>
+                            <th className="px-4 py-3">Estado</th>
                             <th className="px-4 py-3 text-right">Acciones</th>
                         </tr>
                     </thead>
@@ -99,7 +100,25 @@ export default function Index({ asignaciones, filtros }) {
                                         <span className="text-slate-400">Indefinido</span>
                                     )}
                                 </td>
-                                <td className="px-4 py-3 text-right whitespace-nowrap">
+                                <td className="px-4 py-3">
+                                    {/* vigente_hoy lo calcula el controlador */}
+                                    {asignacion.vigente_hoy ? (
+                                        <span className="rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-700">
+                                            Vigente hoy
+                                        </span>
+                                    ) : (
+                                        <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs text-slate-500">
+                                            Histórica / futura
+                                        </span>
+                                    )}
+                                </td>
+                                <td className="px-4 py-3 text-right space-x-3 whitespace-nowrap">
+                                    <Link
+                                        href={`/asignaciones/${asignacion.id}/editar`}
+                                        className="text-blue-600 hover:underline"
+                                    >
+                                        Editar
+                                    </Link>
                                     <button
                                         onClick={() => eliminar(asignacion)}
                                         className="text-red-600 hover:underline"
@@ -112,7 +131,7 @@ export default function Index({ asignaciones, filtros }) {
 
                         {asignaciones.data.length === 0 && (
                             <tr>
-                                <td colSpan="5" className="px-4 py-8 text-center text-slate-400">
+                                <td colSpan="6" className="px-4 py-8 text-center text-slate-400">
                                     Sin asignaciones. Usa "+ Asignar turno" para empezar.
                                 </td>
                             </tr>
